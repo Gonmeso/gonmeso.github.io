@@ -1,6 +1,6 @@
 # Personal Web
 
-Static personal website for Gonzalo Mellizo-Soto Díaz.
+Static personal website for myself.
 
 The site is a personal profile and resume-style portfolio focused on backend development. It includes a clean homepage, professional experience, project writeups, and an about/contact section.
 
