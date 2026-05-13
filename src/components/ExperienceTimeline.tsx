@@ -21,6 +21,22 @@ export function ExperienceTimeline({ experiences }: ExperienceTimelineProps) {
               {experience.company}
             </Typography>
             <Typography color="text.secondary">{experience.summary}</Typography>
+            <Box className="timeline-meta">
+              {[
+                { label: 'Responsibility', value: experience.responsibility },
+                { label: 'Systems', value: experience.systems },
+                { label: 'Outcome', value: experience.outcome },
+              ].map((item) => (
+                <Box key={item.label}>
+                  <Typography variant="caption" color="text.secondary">
+                    {item.label}
+                  </Typography>
+                  <Typography variant="body2" sx={{ fontWeight: 720 }}>
+                    {item.value}
+                  </Typography>
+                </Box>
+              ))}
+            </Box>
             <Box component="ul" className="clean-list">
               {experience.highlights.map((highlight) => (
                 <Typography component="li" key={highlight} color="text.secondary">

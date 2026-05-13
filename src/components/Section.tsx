@@ -12,7 +12,7 @@ type SectionProps = {
 export function Section({ eyebrow, title, intro, children, shaded = false }: SectionProps) {
   return (
     <Box component="section" className={shaded ? 'section section-shaded' : 'section'}>
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         {(eyebrow || title || intro) && (
           <Stack spacing={1.2} className="section-heading">
             {eyebrow && (

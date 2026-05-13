@@ -4,6 +4,9 @@ export type Experience = {
   period: string;
   location: string;
   summary: string;
+  responsibility: string;
+  systems: string;
+  outcome: string;
   highlights: string[];
   technologies: string[];
 };
@@ -16,6 +19,9 @@ export const experiences: Experience[] = [
     location: 'Madrid, Spain',
     summary:
       'Backend architecture, Google Cloud infrastructure, and delivery pipelines for systems in the DeFi and ZKML space.',
+    responsibility: 'Backend architecture, platform ownership, and delivery reliability.',
+    systems: 'Fund operations services, ZKML platform workflows, GCP infrastructure.',
+    outcome: 'Production systems with clearer service boundaries and repeatable releases.',
     highlights: [
       'Owned Google Cloud infrastructure, CI/CD, and system architecture with Terraform, FastAPI, Cloud Run, and Cloud SQL.',
       'Developed microservices for fund management and optimization, supporting 5k daily users and high-volume operations.',
@@ -30,6 +36,9 @@ export const experiences: Experience[] = [
     location: 'Zaragoza, Spain',
     summary:
       'MLOps for recommendation systems, with a focus on standards, migration work, monitoring, and deployment tooling.',
+    responsibility: 'MLOps delivery, monitoring, and migration execution.',
+    systems: 'Recommendation pipelines, model drift monitoring, Databricks jobs.',
+    outcome: 'More visible model behavior and more repeatable ML workload delivery.',
     highlights: [
       'Standardized MLOps best practices and tooling across recommendation-system teams.',
       'Led migration of ML and ETL workloads from EMR to Databricks.',
@@ -44,6 +53,9 @@ export const experiences: Experience[] = [
     location: 'Madrid, Spain',
     summary:
       'Core Data and AI platform development across Python services, SDKs, ETL, ML lifecycle tooling, and cloud ML infrastructure.',
+    responsibility: 'Platform services, SDKs, and ML lifecycle infrastructure.',
+    systems: 'Data and AI platform services, ONNX serving, AWS-backed ML workflows.',
+    outcome: 'Reusable internal platform components for data and ML teams.',
     highlights: [
       'Developed Python microservices and SDKs for ETL, ML lifecycle workflows, and governance.',
       'Built scalable ML infrastructure including an ONNX-based inference framework and FastAPI services.',
@@ -58,6 +70,9 @@ export const experiences: Experience[] = [
     location: 'Madrid, Spain',
     summary:
       'Backend engineering role before specializing further in platform, cloud, and ML infrastructure work.',
+    responsibility: 'Backend service development and maintenance.',
+    systems: 'Application backend services inside delivery teams.',
+    outcome: 'Early production engineering experience across service delivery.',
     highlights: ['Built and maintained backend services as part of engineering delivery teams.'],
     technologies: ['Backend engineering', 'Service development'],
   },

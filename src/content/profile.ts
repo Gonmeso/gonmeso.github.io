@@ -1,10 +1,9 @@
 export const profile = {
   name: 'Gonzalo Mellizo-Soto Diaz',
   displayName: 'Gonzalo Mellizo-Soto Díaz',
-  role: 'Backend Developer',
+  role: 'I love backend development, MLOps, and ML engineering challenges',
   headline: 'I build backend services, APIs, and production systems that are clear to operate and easy to evolve.',
   location: 'Madrid, Spain',
-  email: 'gmellizosoto@gmail.com',
   github: 'https://github.com/Gonmeso',
   linkedin: 'https://www.linkedin.com/in/gonmeso/',
   summary:
@@ -22,20 +21,20 @@ export const profile = {
 
 export const focusAreas = [
   {
-    title: 'Backend services',
-    description: 'Python and FastAPI services, API design, service boundaries, and production-grade application architecture.',
+    title: 'Solving real needs',
+    description: 'I like starting from the user problem and then shaping the backend around the workflow it needs to support.',
   },
   {
-    title: 'Data-backed APIs',
-    description: 'Relational persistence, async workflows, queues, storage, and services that model business operations clearly.',
+    title: 'Clear service design',
+    description: 'I care about APIs, data models, and service boundaries that make the system understandable for the next change.',
   },
   {
-    title: 'Production delivery',
-    description: 'CI/CD, Docker, deployment automation, observability habits, and releases that are boring in the best way.',
+    title: 'Maintainable code',
+    description: 'I prefer straightforward code, small abstractions, and decisions that keep the backend easy to modify over time.',
   },
   {
-    title: 'ML-adjacent systems',
-    description: 'MLOps, batch inference, model lifecycle tooling, and backend services that connect ML work to products.',
+    title: 'Reliable operation',
+    description: 'I build with production in mind: deployment paths, monitoring, and workflows that reduce manual work for the team.',
   },
 ];
 
