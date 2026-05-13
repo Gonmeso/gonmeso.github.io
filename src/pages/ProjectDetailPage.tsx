@@ -1,9 +1,11 @@
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link as RouterLink, useParams } from 'react-router-dom';
 import { Box, Button, Chip, Container, Divider, Grid, Stack, Typography, alpha } from '@mui/material';
+import { ArchitectureFlow } from '../components/ArchitectureFlow';
 import { projects } from '../content/projects';
 
 const sections = [
+  { key: 'decisions', title: 'Technical decisions' },
   { key: 'built', title: 'What I built' },
   { key: 'architecture', title: 'Architecture' },
   { key: 'impact', title: 'Impact' },
@@ -26,9 +28,16 @@ export function ProjectDetailPage() {
     );
   }
 
+  const glanceItems = [
+    { label: 'Role', value: project.role },
+    { label: 'System type', value: project.systemType },
+    { label: 'Scale / signal', value: project.scale },
+    { label: 'Core stack', value: project.technologies.slice(0, 4).join(', ') },
+  ];
+
   return (
     <Box className="project-detail" sx={{ '--project-accent': project.accentColor }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <Stack spacing={4}>
           <Button component={RouterLink} to="/projects" startIcon={<ArrowBackIcon />} sx={{ alignSelf: 'flex-start' }}>
             Back to projects
@@ -62,9 +71,22 @@ export function ProjectDetailPage() {
                   backgroundImage: `linear-gradient(135deg, ${alpha(project.accentColor, 0.1)} 0%, transparent 48%)`,
                 }}
               >
-                <Typography variant="subtitle2" sx={{ fontWeight: 850, mb: 1.5 }}>
-                  Technologies
+                <Typography variant="subtitle2" sx={{ fontWeight: 850, mb: 2 }}>
+                  At a glance
                 </Typography>
+                <Stack spacing={1.6} className="glance-list">
+                  {glanceItems.map((item) => (
+                    <Box key={item.label}>
+                      <Typography variant="caption" color="text.secondary">
+                        {item.label}
+                      </Typography>
+                      <Typography variant="body2" sx={{ fontWeight: 760 }}>
+                        {item.value}
+                      </Typography>
+                    </Box>
+                  ))}
+                </Stack>
+                <Divider sx={{ my: 2 }} />
                 <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap">
                   {project.technologies.map((tech) => (
                     <Chip key={tech} label={tech} />
@@ -88,6 +110,32 @@ export function ProjectDetailPage() {
               </Typography>
             </Grid>
           </Grid>
+
+          <Grid container spacing={4}>
+            <Grid size={{ xs: 12, md: 4 }}>
+              <Typography variant="h4" component="h2">
+                Architecture shape
+              </Typography>
+            </Grid>
+            <Grid size={{ xs: 12, md: 8 }}>
+              <ArchitectureFlow project={project} />
+            </Grid>
+          </Grid>
+
+          {project.diagram ? (
+            <Grid container spacing={4}>
+              <Grid size={{ xs: 12, md: 4 }}>
+                <Typography variant="h4" component="h2">
+                  Model drift flow
+                </Typography>
+              </Grid>
+              <Grid size={{ xs: 12, md: 8 }}>
+                <Box className="project-diagram-frame">
+                  <Box component="img" src={project.diagram.src} alt={project.diagram.alt} className="project-diagram" />
+                </Box>
+              </Grid>
+            </Grid>
+          ) : null}
 
           {sections.map((section) => (
             <Grid container spacing={4} key={section.key}>

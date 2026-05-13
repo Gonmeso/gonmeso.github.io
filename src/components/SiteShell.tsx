@@ -4,7 +4,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import {
@@ -24,8 +23,9 @@ import { profile } from '../content/profile';
 
 const navItems = [
   { label: 'Home', path: '/' },
-  { label: 'Projects', path: '/projects' },
   { label: 'Experience', path: '/experience' },
+  { label: 'Projects', path: '/projects' },
+  { label: 'How I use AI', path: '/ai' },
   { label: 'About', path: '/about' },
 ];
 
@@ -40,7 +40,13 @@ export function SiteShell({ children, mode, onToggleMode }: SiteShellProps) {
   const location = useLocation();
 
   const navigation = (
-    <Stack direction={{ xs: 'column', md: 'row' }} spacing={1} sx={{ alignItems: { md: 'center' } }}>
+    <Stack
+      component="nav"
+      aria-label="Primary navigation"
+      direction={{ xs: 'column', md: 'row' }}
+      spacing={1}
+      sx={{ alignItems: { md: 'center' } }}
+    >
       {navItems.map((item) => {
         const active = item.path === '/' ? location.pathname === '/' : location.pathname.startsWith(item.path);
         return (
@@ -62,7 +68,7 @@ export function SiteShell({ children, mode, onToggleMode }: SiteShellProps) {
   return (
     <>
       <AppBar position="sticky" color="inherit" elevation={0} className="site-header">
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <Toolbar disableGutters sx={{ minHeight: 72, gap: 2 }}>
             <Box sx={{ display: { xs: 'none', md: 'block' } }}>{navigation}</Box>
 
@@ -82,11 +88,6 @@ export function SiteShell({ children, mode, onToggleMode }: SiteShellProps) {
               <Tooltip title="LinkedIn">
                 <IconButton component={Link} href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
                   <LinkedInIcon />
-                </IconButton>
-              </Tooltip>
-              <Tooltip title="Email">
-                <IconButton component={Link} href={`mailto:${profile.email}`} aria-label="Email">
-                  <MailOutlineIcon />
                 </IconButton>
               </Tooltip>
             </Stack>
@@ -127,7 +128,7 @@ export function SiteShell({ children, mode, onToggleMode }: SiteShellProps) {
       <Box component="main">{children}</Box>
 
       <Box component="footer" className="site-footer">
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="space-between" alignItems={{ sm: 'center' }}>
             <Typography variant="body2" color="text.secondary">
               {profile.displayName} · {profile.location}
@@ -138,9 +139,6 @@ export function SiteShell({ children, mode, onToggleMode }: SiteShellProps) {
               </Link>
               <Link href={profile.linkedin} target="_blank" rel="noreferrer" underline="hover">
                 LinkedIn
-              </Link>
-              <Link href={`mailto:${profile.email}`} underline="hover">
-                Email
               </Link>
             </Stack>
           </Stack>
