@@ -53,6 +53,32 @@ Preview the production build:
 npm run preview
 ```
 
+Install the browser used for visual checks:
+
+```bash
+npm run check:visual:setup
+```
+
+Run the local development visual check before committing:
+
+```bash
+npm run check:visual:local
+```
+
+This builds the site from your local working tree, serves the generated `dist/` output, checks every route at desktop and mobile sizes, fails on browser console errors or blank content, and writes screenshots to:
+
+```txt
+artifacts/visual-check/latest/
+```
+
+Check the deployed GitHub Pages site after committing and deploying:
+
+```bash
+npm run check:visual:github
+```
+
+`npm run check:visual` is an alias for the local check. `npm run check:visual:live` is kept as an alias for the GitHub Pages check.
+
 ## Deployment
 
 The GitHub Pages workflow is defined at:
@@ -66,7 +92,7 @@ To deploy:
 1. Push the repository to GitHub.
 2. In repository settings, enable GitHub Pages.
 3. Set the Pages source to **GitHub Actions**.
-4. Push to `main`.
+4. Push to `master`.
 
 The workflow builds the app and publishes the `dist/` directory.
 
@@ -77,5 +103,6 @@ The app uses hash routing so routes work reliably on GitHub Pages:
 ```txt
 /#/projects
 /#/experience
+/#/ai
 /#/about
 ```
